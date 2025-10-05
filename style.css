@@ -18,6 +18,9 @@ body {
 }
 
 .header-content {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #c7f2cc;
   color: #09a318;
   padding: 20px;
