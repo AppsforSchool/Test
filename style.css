@@ -23,7 +23,7 @@ body {
   /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
   background-color: #c7f2cc;
   color: #09a318;
-  padding: 5vh;
+  padding: 5vh 5vh;
   text-align: center;
   height: auto;
 }
