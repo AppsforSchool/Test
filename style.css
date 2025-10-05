@@ -16,9 +16,10 @@ body {
     background-color: #c7f2cc;
     color: #09a318;
     padding: 5vh;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: fixed; /* ヘッダーを画面に固定 */
+    top: 0; /* 上端から0の位置に配置 */
+    width: 100%; /* 幅を画面いっぱいに広げる */
+    z-index: 1000;
 }
 
 .header-content {
