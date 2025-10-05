@@ -9,6 +9,7 @@ body {
 
 body {
   font-family: "BIZ UDGothic", sans-serif;
+  overflow-y: hidden;
 }
 
 .container {
@@ -20,14 +21,14 @@ body {
 
 .leftContent {
   flax: 1;
-  padding: 20vh;
+  padding: 5vh;
   background-color: #f0f0f0;
   text-align: center;
 }
 
 .rightContent {
   flax: 3;
-  padding: 20vh;
+  padding: 5vh;
   background-color: white;
   text-align: left;
 }
@@ -41,7 +42,8 @@ body {
 
 .levelButton button {
   font-family: "BIZ UDGothic", sans-serif;
-  wigth: 35vw;
+  wigth: 70vw;
+  
   padding: 10px;
   border: 2px solid #09a318;
   color: white;
