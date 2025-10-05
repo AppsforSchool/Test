@@ -1,22 +1,104 @@
 <!DOCTYPE html>
-<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ホーム画面に追加した際にフルスクリーン表示にする -->
-    <meta name="apple-mobile-web-app-capable" content="yes"> 
-    <title>iPadドリル</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <div class="question-box">
-            <p class="question-text">次の問題に答えなさい。</p>
-        </div>
-        <div class="button-area">
-            <button class="answer-button">ボタンA</button>
-            <button class="answer-button">ボタンB</button>
-        </div>
+
+<div class="container">
+  <div class="leftContent">
+    <spen class="bold">STEPを選択</spen>
+    <div class="levelButton">
+
+      <button data-target="list0" class="toActive is-active">
+        <spen class="bold">
+          <spen class="mini">STEP</spen>０<br>計算の復習
+        </spen><br>
+        <spen class="mini">圧力の計算で使用する<br>計算を復習する</spen>
+      </button>
+
+      <button data-target="list1" class="toActive">
+        <spen class="bold">
+          <spen class="mini">STEP</spen>１<br>解き方を確認
+        </spen><br>
+        <spen class="mini">ステップを踏んで解く</spen>
+      </button>
+
+      <button data-target="list2" class="toActive">
+        <spen class="bold">
+          <spen class="mini">STEP</spen>２<br>問題を解く
+        </spen><br>
+        <spen class="mini">自分で式をつくって解く</spen>
+      </button>
+
+      <button data-target="list3" class="toActive">
+        <spen class="bold">
+          <spen class="mini">STEP</spen>３<br>比較
+        </spen><br>
+        <spen class="mini">圧力の大きさを比べる</spen>
+      </button>
+
     </div>
-</body>
-</html>
+  </div>
+
+  <div class="rightContent">
+    <spen class="bold">問題内容</spen>
+    <div class="list-container">
+
+      <ul id="list0" class="checklist">
+        <li> 単位の換算</li>
+        <li>面積の計算</li>
+        <li>面積の単位の換算</li>
+      </ul>
+      <ul id="list1" class="checklist hidden">
+        <li>重力の大きさ→面積→圧力</li>
+      </ul>
+      <ul id="list2" class="checklist hidden">
+        <li>圧力の計算</li>
+      </ul>
+
+      <ul id="list3" class="checklist hidden">
+        <li>面積が違うときの圧力の違い</li>
+        <li>物体にはたらく重力が違うときの圧力の違い</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.toActive');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('is-active');
+      });
+      button.classList.add('is-active');
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.toActive');
+    const allLists = document.querySelectorAll('.checklist');
+    // ボタンにクリックイベントを設定
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // 1. すべてのボタンから`is-active`クラスを削除
+        buttons.forEach(b => b.classList.remove('is-active'));
+        // 2. クリックされたボタンに`is-active`クラスを追加
+        button.classList.add('is-active');
+        // 3. すべてのリストを非表示にする
+        allLists.forEach(list => list.classList.add('hidden'));
+        // 4. クリックされたボタンのdata-target属性を取得
+        const targetId = button.dataset.target;
+        // 5. 対応するリストを取得し、`hidden`クラスを削除して表示する
+        const targetList = document.getElementById(targetId);
+        if (targetList) {
+          targetList.classList.remove('hidden');
+        }
+      });
+    });
+  });
+</script>
