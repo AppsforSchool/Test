@@ -1,71 +1,74 @@
-/* 全体設定 */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f0f0f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
 
-/* コンテナ設定 */
+body {
+  font-family: "BIZ UDGothic", sans-serif;
+}
+
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 90vw; /* 画面幅の90% */
-    height: 90vh; /* 画面高さの90% */
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 2vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  /*border: 1px solid #ccc;*/
 }
 
-/* 問題文のスタイル */
-.question-box {
-    width: 80vw;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e8e8e8;
-    border-radius: 15px;
-    padding: 2vw;
+.leftContent {
+  flax: 1;
+  padding: 20vh;
+  background-color: #f0f0f0;
+  text-align: center;
 }
 
-.question-text {
-    font-size: 5vw; /* 画面幅に合わせて文字サイズを調整 */
-    color: #333;
-    margin: 0;
+.rightContent {
+  flax: 3;
+  padding: 20vh;
+  background-color: white;
+  text-align: left;
 }
 
-/* ボタンエリア */
-.button-area {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2vw; /* ボタン間の余白 */
-    width: 80vw;
+.levelButton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-/* ボタンのスタイル */
-.answer-button {
-    width: 35vw; /* 画面幅に合わせてボタンの横幅を調整 */
-    height: 10vh; /* 画面高さに合わせてボタンの高さを調整 */
-    font-size: 3vw; /* 画面幅に合わせて文字サイズを調整 */
-    border: none;
-    border-radius: 15px;
-    background-color: #007aff;
-    color: #ffffff;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+.levelButton button {
+  font-family: "BIZ UDGothic", sans-serif;
+  wigth: 35vw;
+  padding: 10px;
+  border: 2px solid #09a318;
+  color: white;
+  font-size: 3vh;
+  border-radius: 10px;
+  text-align: left;
+  background-color: #c7f2cc;
+  color: #09a318;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.answer-button:hover {
-    background-color: #005bb5;
+.bold {
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+}
+
+.mini {
+  font-size: 2vh;
+}
+
+.levelButton .is-active {
+  background-color: #09a318;
+  color: white;
+}
+
+.checklist li {
+  font-size: 3vh;
+  margin-bottom: 3vh;
 }
