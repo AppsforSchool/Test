@@ -24,6 +24,7 @@ body {
   padding: 5vh;
   background-color: #f0f0f0;
   text-align: center;
+  font-size: 2vh;
 }
 
 .rightContent {
@@ -31,6 +32,7 @@ body {
   padding: 5vh;
   background-color: white;
   text-align: left;
+  font-size: 2vh;
 }
 
 .levelButton {
