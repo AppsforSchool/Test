@@ -17,7 +17,7 @@ body {
   flex-direction: column; /* 要素を縦方向に並べる */
 }
 
-.header {
+.header-content {
   background-color: #c7f2cc;
   color: #09a318;
   padding: 20px;
