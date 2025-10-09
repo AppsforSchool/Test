@@ -26,6 +26,8 @@ body {
   padding: 5vh 5vh;
   text-align: center;
   height: 10px;
+  position: relative; 
+  z-index: 20; 
 }
 
 .container {
