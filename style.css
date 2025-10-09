@@ -20,7 +20,7 @@ body {
 .header-content {
   display: flex;
   align-items: center;
-  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #c7f2cc;
   color: #09a318;
   padding: 5vh 5vh;
@@ -40,7 +40,7 @@ body {
   padding: 5vh;
   background-color: #f0f0f0;
   text-align: center;
-  font-size: 2vh;
+  font-size: 4vh;
 }
 
 .rightContent {
@@ -48,7 +48,7 @@ body {
   padding: 5vh;
   background-color: white;
   text-align: left;
-  font-size: 2vh;
+  font-size: 4vh;
 }
 
 .levelButton {
