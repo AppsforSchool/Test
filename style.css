@@ -101,3 +101,42 @@ body {
 .hidden {
   display: none;
 }
+
+/*.list-container p:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;*/ /* 線と次の要素の間の余白 */
+  /*margin-bottom: 10px;*/ /* 線と要素の間の余白 *//*
+}*/
+
+.checklist buttn {
+  font-family: "BIZ UDGothic", sans-serif;
+  wigth: 70em;
+  
+  padding: 10px;
+  /*border: 2px solid #09a318;*/
+  color: white;
+  font-size: 3vh;
+  /*border-radius: 10px;*/
+  text-align: left;
+  background-color: #c7f2cc;
+  color: #09a318;
+  /*cursor: pointer;*/
+  /*transition: background-color 0.2s ease;*/
+}
+
+.checklist a {
+  display: block; /* aタグをブロック要素に変更して、縦に並べる */
+  margin-bottom: 3px; /* ボタンの下に少し余白を作る */
+}
+
+/* ボタンのデザインを調整 */
+.checklist button {
+  font-family: "BIZ UDGothic", sans-serif;
+  font-weight: 700;
+  width: 300px; /* 親要素（aタグ）の幅いっぱいに広げる */
+  padding: 10px;
+  font-size: 3vh;
+  text-align: left;
+  background-color: #c7f2cc;
+  color: #09a318;
+}
