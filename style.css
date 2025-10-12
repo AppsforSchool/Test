@@ -133,9 +133,9 @@ body {
 .checklist button {
   font-family: "BIZ UDGothic", sans-serif;
   font-weight: 700;
-  width: 750px; /* 親要素（aタグ）の幅いっぱいに広げる */
+  width: 700px; /* 親要素（aタグ）の幅いっぱいに広げる */
   padding: 10px;
-  font-size: 3vh;
+  font-size: 2.5vh;
   text-align: left;
   background-color: #c7f2cc;
   color: #09a318;
