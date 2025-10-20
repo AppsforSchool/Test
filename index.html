@@ -185,6 +185,7 @@
             // 選択状態をリセット
             levelButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+            localStorage.setItem('setLevel', button.detaset.level);
             //selectedLevel = button.dataset.level;
             //checkSelection();
         });
@@ -196,6 +197,7 @@
             // 選択状態をリセット
             questionsButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+            localStorage.setItem('setQuestions', button.detaset.questions);
             //selectedQuestions = button.dataset.questions;
             //checkSelection();
         });
@@ -207,18 +209,18 @@
             // 問題数の設定ボタンからactiveなものを探す
             const levelButton = document.querySelector('#level-selection .level-button.active');
             if (levelButton) {
-                params.append('level', levelButton.dataset.questions);
+                params.append('level', levelButton.dataset.level);
             }
 
             // レベルの設定ボタンからactiveなものを探す
             const questinsButton = document.querySelector('#questions-selection .questions-button.active');
             if (questionsButton) {
-                params.append('questions',questionsButton.dataset.level);
+                params.append('questions',questionsButton.dataset.questions);
             }
 
             // 表示画面に遷移（クエリパラメータを付与）
             window.location.href = `display.html?${params.toString()}`;
-        });
+    });
     
   </script>
 </body>
