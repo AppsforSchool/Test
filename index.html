@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-
+<!--<!DOCTYPE html>-->
 <html lang="ja">
   
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>圧力の計算問題</title>
+  <title>圧力の計算</title>
   <meta name="apple-mobile-web-app-capable" content="yes"> 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +30,7 @@
   </header>
 
   <main class="selection-container">
-    <p class="selection-title">圧力の計算問題 問題選択</p>
+    <p class="selection-title">圧力の計算 問題選択</p>
     
     <p class="level-title">レベル</p>
     <div class="level-selection">
@@ -80,14 +79,14 @@
     <span class="split-line"></span>
     
     <div class="mode-selection">
-      <button class="mode-button" data-mode="time-attack">
+      <button class="mode-button" id="timeAttackButton">
         タイムアタック
         <spen class="mini-text">
           でスタート
         </spen>
       </button>
       
-      <button class="mode-button" data-mode="practice">
+      <button class="mode-button" id="practiceButton">
         練習
         <spen class="mini-text">
           でスタート
@@ -201,6 +200,25 @@
             checkSelection();
         });
     });
+    
+   document.getElementById('timeAttackButton').addEventListener('click', () => {
+            const params = new URLSearchParams();
+            
+            // 問題数の設定ボタンからactiveなものを探す
+            const questionsButton = document.querySelector('.level-selection .level-button.active');
+            if (questionsButton) {
+                params.append('level', questionsButton.dataset.questions);
+            }
+
+            // レベルの設定ボタンからactiveなものを探す
+            const levelButton = document.querySelector('.questions-selection .questions-button.active');
+            if (levelButton) {
+                params.append('questions', levelButton.dataset.level);
+            }
+
+            // 表示画面に遷移（クエリパラメータを付与）
+            window.location.href = `display.html?${params.toString()}`;
+        });
     
   </script>
 </body>
