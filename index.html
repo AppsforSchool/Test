@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>-->
+<!DOCTYPE html>
 <html lang="ja">
   
 <head>
@@ -33,7 +33,7 @@
     <p class="selection-title">圧力の計算 問題選択</p>
     
     <p class="level-title">レベル</p>
-    <div class="level-selection" id="level-selection">
+    <div class="level-selection" id="level-buttons">
       
       <button class="level-button active" data-level="1">
         レベル1
@@ -64,7 +64,7 @@
     </div>
     
     <p class="questions-title">問題数</p>
-    <div class="questions-selection" id="questions-selection">
+    <div class="questions-selection" id="questions-buttons">
       
       <button class="questions-button active" data-questions="5">5問</button>
       
@@ -173,11 +173,9 @@
     changeNameBtn.addEventListener('click', promptForName);
   
     
-    const  levelButtons = document.querySelectorAll('.level-button');
+    const levelButtons = document.querySelectorAll('.level-button');
     const questionsButtons = document.querySelectorAll('.questions-button');
 
-    let selectedLevel = null;
-    let selectedQuestions = null;
 
         // level選択ボタンのイベントリスナー
     levelButtons.forEach(button => {
@@ -207,13 +205,13 @@
             const params = new URLSearchParams();
             
             // 問題数の設定ボタンからactiveなものを探す
-            const levelButton = document.querySelector('#level-selection .level-button.active');
+            const levelButton = document.querySelector('#level-buttons .level-button.active');
             if (levelButton) {
                 params.append('level', levelButton.dataset.level);
             }
 
             // レベルの設定ボタンからactiveなものを探す
-            const questinsButton = document.querySelector('#questions-selection .questions-button.active');
+            const questinsButton = document.querySelector('#questions-buttons .questions-button.active');
             if (questionsButton) {
                 params.append('questions',questionsButton.dataset.questions);
             }
