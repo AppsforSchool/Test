@@ -33,7 +33,7 @@
     <p class="selection-title">圧力の計算 問題選択</p>
     
     <p class="level-title">レベル</p>
-    <div class="level-selection">
+    <div class="level-selection" id="level-selection">
       
       <button class="level-button active" data-level="1">
         レベル1
@@ -64,7 +64,7 @@
     </div>
     
     <p class="questions-title">問題数</p>
-    <div class="questions-selection">
+    <div class="questions-selection" id="questions-selection">
       
       <button class="questions-button active" data-questions="5">5問</button>
       
@@ -205,15 +205,15 @@
             const params = new URLSearchParams();
             
             // 問題数の設定ボタンからactiveなものを探す
-            const questionsButton = document.querySelector('.level-selection .level-button.active');
+            const levelButton = document.querySelector('#level-selection .level-button.active');
             if (questionsButton) {
-                params.append('level', questionsButton.dataset.questions);
+                params.append('level', levelButton.dataset.questions);
             }
 
             // レベルの設定ボタンからactiveなものを探す
-            const levelButton = document.querySelector('.questions-selection .questions-button.active');
+            const questinsButton = document.querySelector('#questions-selection .questions-button.active');
             if (levelButton) {
-                params.append('questions', levelButton.dataset.level);
+                params.append('questions',questionsButton.dataset.level);
             }
 
             // 表示画面に遷移（クエリパラメータを付与）
