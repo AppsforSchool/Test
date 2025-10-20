@@ -185,7 +185,7 @@
             // 選択状態をリセット
             levelButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            localStorage.setItem('setLevel', button.detaset.level);
+            localStorage.setItem('setLevel', button.dataset.level);
             //selectedLevel = button.dataset.level;
             //checkSelection();
         });
@@ -197,7 +197,7 @@
             // 選択状態をリセット
             questionsButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            localStorage.setItem('setQuestions', button.detaset.questions);
+            localStorage.setItem('setQuestions', button.dataset.questions);
             //selectedQuestions = button.dataset.questions;
             //checkSelection();
         });
