@@ -1,142 +1,176 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
   font-family: "BIZ UDGothic", sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
 }
 
-.allContent {
-  display: flex;
-  flex-direction: column; /* 要素を縦方向に並べる */
-}
 
-.header-content {
+.game-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #c7f2cc;
-  color: #09a318;
-  padding: 2vh 2vh;
-  text-align: center;
-  /*height: 10;*/
-  position: relative; 
-  z-index: 20; 
+  padding: 1.2rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  font-size: 3.2vh;
+.user-info {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
-.container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  /*border: 1px solid #ccc;*/
+.user-name {
+  gap: 1.0rem;
 }
 
-.leftContent {
-  flax: 1;
-  padding: 5vh;
-  background-color: #f0f0f0;
-  text-align: center;
-  font-size: 1.8vh;
-}
-
-.rightContent {
-  flax: 3;
-  padding: 5vh;
-  background-color: white;
-  text-align: left;
-  font-size: 1.8vh;
-}
-
-.levelButton {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.levelButton button {
-  font-family: "BIZ UDGothic", sans-serif;
-  wigth: 70vw;
-  
-  padding: 10px;
-  border: 2px solid #09a318;
-  color: white;
-  font-size: 3vh;
-  border-radius: 10px;
-  text-align: left;
-  background-color: #c7f2cc;
-  color: #09a318;
+#change-name-btn {
+  padding: 0rem 0.5rem;
+  font-weight: 700;
+  color: #007bff;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
 }
 
-.bold {
-  font-family: "BIZ UDGothic", sans-serif;
+#change-name-btn:hover {
+  background-color: #e9e9e9;
+  border-color: #aaa;
+}
+
+.achievements-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.achievements-link:hover {
+    color: #0056b3;
+}
+
+.selection-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.selection-title {
+  font-size: 1.3rem;
+  color: #333;
   font-weight: 700;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
 }
 
-.mini {
-  font-size: 2vh;
-}
-
-.levelButton .is-active {
-  background-color: #09a318;
-  color: white;
-}
-
-.checklist li {
-  font-size: 3vh;
-  margin-bottom: 3vh;
-}
-
-.hidden {
-  display: none;
-}
-
-/*.list-container p:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;*/ /* 線と次の要素の間の余白 */
-  /*margin-bottom: 10px;*/ /* 線と要素の間の余白 *//*
-}*/
-
-.checklist buttn {
-  font-family: "BIZ UDGothic", sans-serif;
-  wigth: 70em;
+.level-title,
+.questions-title {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   
-  padding: 10px;
-  /*border: 2px solid #09a318;*/
+}
+
+.level-selection,
+.questions-selection,
+.mode-selection {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.mode-selection {
+  margin-bottom: 0rem;
+}
+
+.selection-container button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease; /*0.3*/
+}
+
+.mode-selection button {
+  padding: 1rem 2rem;
+  background-color: #007bff;
+  border-color: #007bff;
   color: white;
-  font-size: 3vh;
-  /*border-radius: 10px;*/
-  text-align: left;
-  background-color: #c7f2cc;
-  color: #09a318;
-  /*cursor: pointer;*/
-  /*transition: background-color 0.2s ease;*/
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
 }
 
-.checklist a {
-  display: block; /* aタグをブロック要素に変更して、縦に並べる */
-  margin-bottom: 3px; /* ボタンの下に少し余白を作る */
+.selection-container button:hover {
+    background-color: #e9e9e9;
+    border-color: #aaa;
 }
 
-/* ボタンのデザインを調整 */
-.checklist button {
-  font-family: "BIZ UDGothic", sans-serif;
-  font-weight: 700;
-  width: 700px; /* 親要素（aタグ）の幅いっぱいに広げる */
-  padding: 10px;
-  font-size: 2.5vh;
-  text-align: left;
-  background-color: #c7f2cc;
-  color: #09a318;
+.mode-selection button:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.selection-container button.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+    transform: translateY(0px); /*-2*/
+}
+
+.mini-text {
+  font-size: 0.8rem;
+}
+
+.split-line {
+  display: flex;
+  width: 90%;
+  border-bottom: 1.5px solid #ddd;
+  margin: 2rem auto;
+}
+
+@media (max-width: 600px) {
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+  
+    .questions-selection,
+    .mode-selection,
+    .level-selection {
+        flex-direction: column;
+        gap: 10px;
+    }
+    button {
+        width: 80%;
+        margin: 0 auto;
+    }
 }

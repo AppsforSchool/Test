@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
+<html lang="ja">
+  
+<head>
+  <!--<!DOCTYPE html>!--->
 
 <html lang="ja">
   
@@ -13,121 +17,196 @@
   <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
+  
 <body>
-
-<div class="allContent">
-<div class="header-content">
-  <p class="site-title">圧力の計算問題　　</p>
-  <div class="user-stats">
-    <span id="solved-count">解いた問題数: 0</span>
-    <span id="accuracy-rate">正答率: 0%</span>
-  </div>
-</div>
-<div class="container">
-  <div class="leftContent">
-    <spen class="bold">STEPを選択</spen>
-    <div class="levelButton">
-
-      <button data-target="list0" class="toActive is-active">
-        <spen class="bold">
-          <spen class="mini">STEP</spen>０<br>計算の復習
-        </spen><br>
-        <spen class="mini">圧力の計算で使用する<br>計算を復習する</spen>
-      </button>
-
-      <button data-target="list1" class="toActive">
-        <spen class="bold">
-          <spen class="mini">STEP</spen>１<br>解き方を確認
-        </spen><br>
-        <spen class="mini">ステップを踏んで解く</spen>
-      </button>
-
-      <button data-target="list2" class="toActive">
-        <spen class="bold">
-          <spen class="mini">STEP</spen>２<br>問題を解く
-        </spen><br>
-        <spen class="mini">自分で式をつくって解く</spen>
-      </button>
-
-      <button data-target="list3" class="toActive">
-        <spen class="bold">
-          <spen class="mini">STEP</spen>３<br>比較
-        </spen><br>
-        <spen class="mini">圧力の大きさを比べる</spen>
-      </button>
-
-    </div>
-  </div>
-
-  <div class="rightContent">
-    <spen class="bold">問題を選択</spen>
-    <p></p>
-    <div class="list-container">
-
-      <div id="list0" class="checklist">
-        <a><button>単位の換算</button></a>
-        <a><button>面積の計算</button></a>
-        <a><button>面積の単位の換算</button></a>
-          
-        
-        <!--<p> 単位の換算</p>
-        <p>面積の計算</p>
-        <p>面積の単位の換算</p> !-->
-      </div>
+  <header class="game-header">
+    <div class="user-info">
       
-      <div id="list1" class="checklist hidden">
-        <a><button>重力の大きさ→面積→圧力</button></a>
-      </div>
-        
-      <div id="list2" class="checklist hidden">
-        <a><button>圧力の計算</button></a>
-      </div>
+        <p><spen id="user-name-display">username</spen></p>
+        <button id="change-name-btn">名前を変更</button>
+      
+      <p></p>
+      <p>解いた問題数: <spen id="solved-count">10</spen> 問</p>
+     
+    </div>
+      
+    <a href="#" class="achievements-link">実績一覧</a>
+    
+  </header>
 
-      <div id="list3" class="checklist hidden">
-        <a><button>面積が違うときの圧力の違い</button></a>
-        <a><button>物体にはたらく重力が違うときの圧力の違い</button></a>
-      </div>
+  <main class="selection-container">
+    <p class="selection-title">圧力の計算問題 問題選択</p>
+    
+    <p class="level-title">レベル</p>
+    <div class="level-selection">
+      
+      <button class="level-button active" data-level="1">
+        レベル1
+        <br>
+        <spen class="mini-text">
+          Paを求める
+        </spen>
+      </button>
+      
+      <button class="level-button" data-level="2">
+        レベル2
+        <br>
+        <spen class="mini-text">
+          N,㎡,Paを求める
+        </spen>
+      </button>
+      
+      <button class="level-button" data-level="3">
+        レベル3
+        <br>
+        <spen class="mini-text">
+          単位の換算が必要
+        </spen>
+      </button>
+      
+      <!--<button class="questions-button" data-mode="time-attack">30問</button>-->
       
     </div>
-  </div>
-</div>
-</div>
+    
+    <p class="questions-title">問題数</p>
+    <div class="questions-selection">
+      
+      <button class="questions-button active" data-questions="5">5問</button>
+      
+      <button class="questions-button" data-questions="10">10問</button>
+      
+      <button class="questions-button" data-questions="20">20問</button>
+      
+      <button class="questions-button" data-questions="30">30問</button>
+      
+    </div>
+    
+    <span class="split-line"></span>
+    
+    <div class="mode-selection">
+      <button class="mode-button" data-mode="time-attack">
+        タイムアタック
+        <spen class="mini-text">
+          でスタート
+        </spen>
+      </button>
+      
+      <button class="mode-button" data-mode="practice">
+        練習
+        <spen class="mini-text">
+          でスタート
+        </spen>
+      </button>
+      
+      
+    </div>
+    
+  </main>
+  
+  
+  
+  
+  
+  
+  
+  <script>
+    const usernameDisplay = document.getElementById('user-name-display');
+    const changeNameBtn = document.getElementById('change-name-btn');
 
+// ページの読み込み時に実行する関数
+    function initializeUsername() {
+  // ローカルストレージからユーザーネームを取得
+      const savedName = localStorage.getItem('username');
+
+  // 名前が保存されていない場合
+      if (!savedName) {
+        promptForName(true); // 名前設定ダイアログを表示
+      } else {
+        updateUsernameDisplay(savedName); // ヘッダーに名前を表示
+      }
+    }
+    
+    function promptForName(first) {
+  let newName = ''; // 変数をループ外で定義
+
+  // ユーザーが有効な名前を入力するまでループ
+  while (true) {
+    if (first == true) {
+      newName = prompt('はじめまして！名前を入力してください（10文字以内）');
+    } else {
+      newName = prompt('名前を入力してください（10文字以内）');
+    }
+    // キャンセルボタンが押された場合
+    if (newName === null) {
+      return; // 処理を中断
+    }
+
+    // 文字数チェック
+    if (newName.trim().length > 10) {
+      alert('名前は10文字以内で入力してください。');
+      // ループが続くので、再度promptが表示される
+    } else if (newName.trim() === '') {
+      alert('名前が入力されていません。');
+      // ループが続く
+    } else {
+      // 有効な名前が入力されたのでループを抜ける
+      break; 
+    }
+  }
+
+  // ループを抜けた後、名前を保存・表示
+  saveUsername(newName.trim());
+  updateUsernameDisplay(newName.trim());
+}
+
+    // ユーザーネームをローカルストレージに保存する関数
+    function saveUsername(name) {
+      localStorage.setItem('username', name);
+      
+    }
+
+    // ユーザーネーム表示を更新する関数
+    function updateUsernameDisplay(name) {
+      usernameDisplay.textContent = name;
+    }
+
+    // イベントリスナーを設定
+    // ページが完全に読み込まれた後に実行
+    document.addEventListener('DOMContentLoaded', initializeUsername);
+
+// 名前変更ボタンがクリックされたときに実行
+    changeNameBtn.addEventListener('click', promptForName);
+  
+    
+    const  levelButtons = document.querySelectorAll('.level-button');
+    const questionsButtons = document.querySelectorAll('.questions-button');
+
+    let selectedLevel = null;
+    let selectedQuestions = null;
+
+        // level選択ボタンのイベントリスナー
+    levelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 選択状態をリセット
+            levelButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            selectedLevel = button.dataset.mode;
+            checkSelection();
+        });
+    });
+
+    // 問題数選択ボタンのイベントリスナー
+    questionsButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 選択状態をリセット
+            questionsButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            selectedQuestions = button.dataset.level;
+            checkSelection();
+        });
+    });
+    
+  </script>
 </body>
-
+  
 </html>
-
-<script>
-  const buttons = document.querySelectorAll('.toActive');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(b => {
-        b.classList.remove('is-active');
-      });
-      button.classList.add('is-active');
-    });
-  });
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.toActive');
-    const allLists = document.querySelectorAll('.checklist');
-    // ボタンにクリックイベントを設定
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        // 1. すべてのボタンから`is-active`クラスを削除
-        buttons.forEach(b => b.classList.remove('is-active'));
-        // 2. クリックされたボタンに`is-active`クラスを追加
-        button.classList.add('is-active');
-        // 3. すべてのリストを非表示にする
-        allLists.forEach(list => list.classList.add('hidden'));
-        // 4. クリックされたボタンのdata-target属性を取得
-        const targetId = button.dataset.target;
-        // 5. 対応するリストを取得し、`hidden`クラスを削除して表示する
-        const targetList = document.getElementById(targetId);
-        if (targetList) {
-          targetList.classList.remove('hidden');
-        }
-      });
-    });
-  });
-</script>
