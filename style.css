@@ -52,6 +52,11 @@ body {
   border-color: #aaa;
 }
 
+.header-title-center {
+  text-align: center;
+  flex-grow: 1; /* 中央部分の幅を可能な限り広げることで、中央を維持する */
+}
+
 .achievements-link {
     text-decoration: none;
     color: #007bff;
