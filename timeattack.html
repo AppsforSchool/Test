@@ -91,6 +91,25 @@
     }
 });
 
+    document.addEventListener('DOMContentLoaded', () => {
+  const countdownOverlay = document.getElementById('countdown-overlay');
+  const countdownTimer = document.getElementById('countdown-timer');
+  const problemArea = document.getElementById('problem-area');
+  
+  let count = 3;
+
+  const countdownInterval = setInterval(() => {
+    count--;
+    countdownTimer.textContent = count;
+    
+    if (count === 0) {
+      clearInterval(countdownInterval); // カウントダウンを停止
+      countdownOverlay.style.display = 'none'; // オーバーレイを非表示
+      problemArea.classList.remove('hidden'); // 問題文を表示
+    }
+  }, 1000); // 1秒ごとに実行
+});
+    
   </script>
   
 </body>
