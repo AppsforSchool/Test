@@ -42,6 +42,10 @@
     
   </header>
 
+  <main>
+    
+  </main>
+  
   <script>
     const usernameDisplay = document.getElementById('user-name-display');
 
@@ -66,6 +70,17 @@
     // イベントリスナーを設定
     // ページが完全に読み込まれた後に実行
     document.addEventListener('DOMContentLoaded', initializeUsername);
+
+    document.getElementById('end-game-btn').addEventListener('click', () => {
+    // 確認ダイアログを表示し、ユーザーの選択を `isConfirmed` に格納する
+    const isConfirmed = window.confirm('今回の記録は保存されません。本当にやめますか？');
+
+    // もしユーザーが「OK」をクリックしたら
+    if (isConfirmed) {
+        // ブラウザの履歴を1つ戻り、前のページに遷移する
+        window.history.back();
+    }
+});
 
   </script>
   
