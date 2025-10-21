@@ -42,5 +42,32 @@
     
   </header>
 
+  <script>
+    const usernameDisplay = document.getElementById('user-name-display');
+
+// ページの読み込み時に実行する関数
+    function initializeUsername() {
+  // ローカルストレージからユーザーネームを取得
+      const savedName = localStorage.getItem('username');
+
+  // 名前が保存されていない場合
+      if (!savedName) {
+        updateUsernameDisplay('username'); // 名前設定ダイアログを表示
+      } else {
+        updateUsernameDisplay(savedName); // ヘッダーに名前を表示
+      }
+    }
+    
+    // ユーザーネーム表示を更新する関数
+    function updateUsernameDisplay(name) {
+      usernameDisplay.textContent = name;
+    }
+
+    // イベントリスナーを設定
+    // ページが完全に読み込まれた後に実行
+    document.addEventListener('DOMContentLoaded', initializeUsername);
+
+  </script>
+  
 </body>
 </html>
