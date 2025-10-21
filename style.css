@@ -161,6 +161,30 @@ body {
   margin: 2rem auto;
 }
 
+#countdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒い背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 他のコンテンツの上に表示 */
+}
+
+/* カウントダウンタイマーのテキスト */
+#countdown-timer {
+  font-size: 10rem;
+  color: white;
+}
+
+/* 最初は非表示にするクラス */
+.hidden {
+  display: none;
+}
+
 @media (max-width: 600px) {
     .game-header {
         flex-direction: column;
