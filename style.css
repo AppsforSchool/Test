@@ -185,6 +185,65 @@ body {
   display: none;
 }
 
+.problem-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 50px;
+}
+
+/* 分数部分のコンテナ */
+.fraction-container {
+  display: inline-flex;  /* 行内でflexboxを有効にする */
+  flex-direction: column; /* 子要素を縦に並べる */
+  align-items: center; /* 水平方向の中央揃え */
+  margin: 0 10px;
+}
+
+/* 分子と分母の共通スタイル */
+.numerator,
+.denominator {
+  display: flex;
+  align-items: center;
+}
+
+/* 分子（N）のコンテナ */
+.numerator {
+  border-bottom: 2px solid black; /* 下線を追加 */
+  padding-bottom: 5px; /* 線とテキストの間隔 */
+}
+
+/* 分母（m²）のコンテナ */
+.denominator {
+  padding-top: 5px; /* 線とテキストの間隔 */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.input-box {
+  width: 100px;
+  height: 40px;
+  font-size: 1.5rem;
+  text-align: right;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.unit {
+  margin-left: 5px;
+}
+
+.equals {
+  font-size: 2.5rem;
+  margin: 0 15px;
+}
+
 @media (max-width: 600px) {
     .game-header {
         flex-direction: column;
